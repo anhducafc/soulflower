@@ -5,7 +5,7 @@
   <title>Trà thảo mộc – SoulFlower</title>
 
   <!-- SEO -->
-  <meta name="description" content="Trà thảo mộc organic SoulFlower – nguyên liệu thiên nhiên, tốt cho sức khỏe, không hóa chất.">
+  <meta name="description" content="Trà thảo mộc organic SoulFlower – nguyên liệu thiên nhiên, an toàn cho sức khỏe, không hóa chất.">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
@@ -14,39 +14,53 @@
 
 <header class="header">
   <div class="logo">SoulFlower</div>
-  <nav>
+  <nav id="nav">
     <a href="index.html">Trang chủ</a>
     <a href="products.html">Sản phẩm</a>
     <a href="about.html">Về chúng tôi</a>
   </nav>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 </header>
 
 <section class="section product-detail">
   <div class="product-detail-wrap">
+    <!-- Ảnh sản phẩm -->
     <img src="images/product1.jpg" alt="Trà thảo mộc SoulFlower">
 
+    <!-- Thông tin -->
     <div class="info">
       <h1>Trà thảo mộc</h1>
       <p class="price">120.000đ</p>
+
       <p>
         Trà thảo mộc SoulFlower được làm từ nguyên liệu organic,
-        giúp thanh lọc cơ thể và thư giãn tinh thần.
+        giúp thanh lọc cơ thể, thư giãn tinh thần và hỗ trợ giấc ngủ.
       </p>
+
+      <ul>
+        <li>100% thảo mộc thiên nhiên</li>
+        <li>Không chất bảo quản</li>
+        <li>Đóng gói thân thiện môi trường</li>
+      </ul>
 
       <!-- NÚT LIÊN HỆ -->
       <div class="contact-buttons">
         <a href="https://zalo.me/0900000000" target="_blank" class="btn">
-          <img src="images/zalo.png"> Zalo
+          <img src="images/zalo.png" alt="Zalo"> Liên hệ Zalo
         </a>
 
         <a href="https://www.tiktok.com/@yourshop" target="_blank" class="btn">
-          <img src="images/tiktok.png"> TikTok Shop
+          <img src="images/tiktok.png" alt="TikTok"> TikTok Shop
         </a>
       </div>
     </div>
   </div>
 </section>
 
-<footer class="footer">© SoulFlower</footer>
+<footer class="footer">
+  © 2026 SoulFlower – Organic Living
+</footer>
+
+<script src="js/script.js"></script>
 </body>
 </html>
