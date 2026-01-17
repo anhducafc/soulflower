@@ -1,1 +1,6 @@
-console.log("Website Soul Flower loaded.");
+function toggleMenu() {
+  const nav = document.getElementById("nav");
+  nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+}
+
+document.documentElement.style.scrollBehavior = "smooth";
