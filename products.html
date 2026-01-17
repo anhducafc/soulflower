@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Sản phẩm – SoulFlower</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Danh sách sản phẩm organic SoulFlower: trà thảo mộc, mật ong, tinh dầu thiên nhiên.">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -10,33 +14,48 @@
 
 <header class="header">
   <div class="logo">SoulFlower</div>
-  <nav>
+  <nav id="nav">
     <a href="index.html">Trang chủ</a>
     <a href="products.html">Sản phẩm</a>
     <a href="about.html">Về chúng tôi</a>
   </nav>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 </header>
 
 <section class="section">
-  <h2>Tất cả sản phẩm</h2>
+  <h1>Tất cả sản phẩm</h1>
 
   <div class="products">
-    <div class="card hover">
-      <img src="images/product1.jpg">
+    <!-- Product 1 -->
+    <a href="product.html" class="card hover">
+      <img src="images/product1.jpg" alt="Trà thảo mộc SoulFlower">
       <h3>Trà thảo mộc</h3>
-      <p>Mô tả ngắn</p>
-      <p>120.000đ</p>
-    </div>
+      <p>Thanh lọc – thư giãn</p>
+      <p class="price">120.000đ</p>
+    </a>
 
-    <div class="card hover">
-      <img src="images/product2.jpg">
+    <!-- Product 2 -->
+    <a href="product.html" class="card hover">
+      <img src="images/product2.jpg" alt="Mật ong rừng SoulFlower">
       <h3>Mật ong rừng</h3>
-      <p>Mô tả ngắn</p>
-      <p>220.000đ</p>
-    </div>
+      <p>Nguyên chất 100%</p>
+      <p class="price">220.000đ</p>
+    </a>
+
+    <!-- Product 3 -->
+    <a href="product.html" class="card hover">
+      <img src="images/product3.jpg" alt="Tinh dầu thiên nhiên SoulFlower">
+      <h3>Tinh dầu</h3>
+      <p>Chưng cất thủ công</p>
+      <p class="price">180.000đ</p>
+    </a>
   </div>
 </section>
 
-<footer class="footer">© SoulFlower</footer>
+<footer class="footer">
+  © 2026 SoulFlower – Organic Living
+</footer>
+
+<script src="js/script.js"></script>
 </body>
 </html>
