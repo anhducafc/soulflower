@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <title>SoulFlower – Organic Living</title>
+  <meta charset="UTF-8">
+  <title>SoulFlower – Organic Shop</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -10,54 +10,47 @@
 
 <header class="header">
   <div class="logo">SoulFlower</div>
-  <nav>
-    <a href="#about">Giới thiệu</a>
-    <a href="#products">Sản phẩm</a>
-    <a href="#contact">Liên hệ</a>
+  <nav id="nav">
+    <a href="index.html">Trang chủ</a>
+    <a href="products.html">Sản phẩm</a>
+    <a href="about.html">Về chúng tôi</a>
   </nav>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 </header>
 
-<section class="hero">
+<section class="hero fade-in">
   <div class="hero-text">
-    <h1>Sống Xanh – Thuần Khiết – Organic</h1>
-    <p>Sản phẩm thiên nhiên an toàn cho sức khỏe và môi trường</p>
+    <h1>Organic Store</h1>
+    <p>Sản phẩm thiên nhiên – thuần khiết – bền vững</p>
   </div>
 </section>
 
-<section id="about" class="section">
-  <h2>Về SoulFlower</h2>
-  <p>
-    SoulFlower mang đến các sản phẩm organic được chọn lọc kỹ lưỡng,
-    thân thiện với môi trường và tốt cho sức khỏe.
-  </p>
-</section>
-
-<section id="products" class="section bg-light">
+<section class="section">
   <h2>Sản phẩm nổi bật</h2>
 
   <div class="products">
-    <div class="card">
+    <div class="card hover">
+      <img src="images/product1.jpg">
       <h3>Trà thảo mộc</h3>
-      <p>100% nguyên liệu thiên nhiên</p>
+      <p>120.000đ</p>
     </div>
-    <div class="card">
+
+    <div class="card hover">
+      <img src="images/product2.jpg">
       <h3>Mật ong rừng</h3>
-      <p>Nguyên chất – không pha</p>
+      <p>220.000đ</p>
     </div>
-    <div class="card">
+
+    <div class="card hover">
+      <img src="images/product3.jpg">
       <h3>Tinh dầu</h3>
-      <p>Chưng cất thủ công</p>
+      <p>180.000đ</p>
     </div>
   </div>
 </section>
 
-<section id="contact" class="section">
-  <h2>Liên hệ</h2>
-  <p>Email: contact@soulflower.vn</p>
-</section>
-
 <footer class="footer">
-  © 2026 SoulFlower. Organic & Natural.
+  © 2026 SoulFlower – Organic Living
 </footer>
 
 <script src="js/script.js"></script>
