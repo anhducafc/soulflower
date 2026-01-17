@@ -3,52 +3,115 @@
 <head>
   <meta charset="UTF-8">
   <title>SoulFlower – Organic Shop</title>
+
+  <!-- SEO -->
+  <meta name="description" content="SoulFlower – cửa hàng sản phẩm organic, thiên nhiên, an toàn cho sức khỏe. Trà thảo mộc, mật ong, tinh dầu.">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<!-- HEADER -->
 <header class="header">
   <div class="logo">SoulFlower</div>
+
   <nav id="nav">
     <a href="index.html">Trang chủ</a>
     <a href="products.html">Sản phẩm</a>
     <a href="about.html">Về chúng tôi</a>
   </nav>
+
   <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 </header>
 
+<!-- HERO -->
 <section class="hero fade-in">
-  <div class="hero-text">
-    <h1>Organic Store</h1>
+  <div class="hero-overlay">
+    <h1>Organic Living</h1>
     <p>Sản phẩm thiên nhiên – thuần khiết – bền vững</p>
+    <a href="products.html" class="hero-btn">Xem sản phẩm</a>
   </div>
 </section>
 
-<section class="section">
+<!-- ABOUT SHORT -->
+<section class="section about-home fade-in">
+  <h2>Về SoulFlower</h2>
+  <p>
+    SoulFlower mang đến các sản phẩm organic được chọn lọc kỹ lưỡng,
+    an toàn cho sức khỏe và thân thiện với môi trường.
+  </p>
+</section>
+
+<!-- FEATURE PRODUCTS -->
+<section class="section bg-light fade-in">
   <h2>Sản phẩm nổi bật</h2>
 
   <div class="products">
-    <div class="card hover">
-      <img src="images/product1.jpg">
+    <a href="product.html" class="card hover">
+      <img src="images/product1.jpg" alt="Trà thảo mộc">
       <h3>Trà thảo mộc</h3>
-      <p>120.000đ</p>
-    </div>
+      <p class="price">120.000đ</p>
+    </a>
 
-    <div class="card hover">
-      <img src="images/product2.jpg">
+    <a href="product.html" class="card hover">
+      <img src="images/product2.jpg" alt="Mật ong rừng">
       <h3>Mật ong rừng</h3>
-      <p>220.000đ</p>
+      <p class="price">220.000đ</p>
+    </a>
+
+    <a href="product.html" class="card hover">
+      <img src="images/product3.jpg" alt="Tinh dầu">
+      <h3>Tinh dầu</h3>
+      <p class="price">180.000đ</p>
+    </a>
+  </div>
+
+  <div style="margin-top:30px;">
+    <a href="products.html" class="btn-main">Xem tất cả sản phẩm</a>
+  </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section class="section why fade-in">
+  <h2>Tại sao chọn SoulFlower?</h2>
+
+  <div class="why-grid">
+    <div class="why-item">
+      <h3>🌿 Organic</h3>
+      <p>Nguyên liệu thiên nhiên, không hóa chất</p>
     </div>
 
-    <div class="card hover">
-      <img src="images/product3.jpg">
-      <h3>Tinh dầu</h3>
-      <p>180.000đ</p>
+    <div class="why-item">
+      <h3>♻️ Bền vững</h3>
+      <p>Đóng gói thân thiện môi trường</p>
+    </div>
+
+    <div class="why-item">
+      <h3>💚 An toàn</h3>
+      <p>Phù hợp sử dụng hằng ngày</p>
     </div>
   </div>
 </section>
 
+<!-- CTA -->
+<section class="cta fade-in">
+  <h2>Liên hệ tư vấn ngay</h2>
+  <p>Chúng tôi sẵn sàng hỗ trợ bạn chọn sản phẩm phù hợp</p>
+
+  <div class="contact-buttons">
+    <a href="https://zalo.me/0900000000" target="_blank" class="btn">
+      <img src="images/zalo.png" alt="Zalo"> Zalo
+    </a>
+
+    <a href="https://www.tiktok.com/@yourshop" target="_blank" class="btn">
+      <img src="images/tiktok.png" alt="TikTok"> TikTok Shop
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer class="footer">
   © 2026 SoulFlower – Organic Living
 </footer>
