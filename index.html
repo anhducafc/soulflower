@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<title>Vườn Nắng – Cam Mật Nắng | Nông trại hữu cơ Quỳ Hợp (Trang demo)</title>
+<meta name="description" content="Vườn Nắng là nông trại hữu cơ tại Quỳ Hợp, Nghệ An, nơi giống cam Cam Mật Nắng được chăm trồng theo hướng tự nhiên, không thúc chín, không hoá chất bảo quản.">
+<meta name="theme-color" content="#FF7A30">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='44' fill='%23FF7A30'/%3E%3Ccircle cx='50' cy='50' r='44' fill='none' stroke='%23F4B731' stroke-width='8'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&display=swap" rel="stylesheet">
+
+<style>
+  /* ============ Design tokens ============ */
+  :root{
+    --cream:#FFF8EC;
+    --cream-deep:#FCEEDB;
+    --orange:#FF7A30;
+    --orange-deep:#D9551B;
+    --gold:#F4B731;
+    --dark:#2B2118;
+    --brown:#6E4A2E;
+    --leaf:#5C8A4A;
+
+    --font-display:'Fraunces', serif;
+    --font-body:'Be Vietnam Pro', sans-serif;
+
+    --container:1200px;
+  }
+
+  /* ============ Reset ============ */
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    color:var(--dark);
+    background:var(--cream);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{ display:block; max-width:100%; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ list-style:none; margin:0; padding:0; }
+  h1,h2,h3{ font-family:var(--font-display); margin:0; line-height:1.15; font-weight:600; }
+  p{ margin:0; }
+  button{ font-family:inherit; }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--orange-deep);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  .container{ width:100%; max-width:var(--container); margin:0 auto; padding:0 24px; }
+  section{ padding:96px 0; }
+  section[id]{ scroll-margin-top:90px; }
+  @media (max-width:640px){ section{ padding:64px 0; } }
+
+  .eyebrow{
+    font-weight:700; font-size:.8rem; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--orange-deep); margin-bottom:1rem; display:inline-block;
+  }
+
+  /* ============ Buttons ============ */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+    padding:.95rem 2.1rem; border-radius:999px; font-weight:700; font-size:1rem;
+    border:2px solid transparent; cursor:pointer;
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .btn--primary{ background:var(--orange-deep); color:#fff; }
+  .btn--primary:hover{ transform:translateY(-2px); box-shadow:0 12px 26px -10px rgba(217,85,27,.55); }
+  .btn--ghost{ background:transparent; border-color:var(--dark); color:var(--dark); }
+  .btn--ghost:hover{ background:var(--dark); color:var(--cream); }
+  .btn--light{ background:#fff; color:var(--orange-deep); }
+  .btn--light:hover{ transform:translateY(-2px); box-shadow:0 12px 26px -10px rgba(0,0,0,.25); }
+  .btn--outline-light{ border-color:rgba(255,255,255,.8); color:#fff; }
+  .btn--outline-light:hover{ background:rgba(255,255,255,.16); }
+  .btn--sm{ padding:.6rem 1.4rem; font-size:.875rem; }
+
+  /* ============ Sun rotation ============ */
+  @keyframes spin{ from{ transform:rotate(0deg); } to{ transform:rotate(360deg); } }
+
+  /* ============ Reveal on scroll ============ */
+  .reveal{ opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.is-visible{ opacity:1; transform:none; }
+
+  @media (prefers-reduced-motion:reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    .logo__icon, .hero__sun, .footer__sun{ animation:none !important; }
+    html{ scroll-behavior:auto; }
+  }
+
+  /* ============ Header ============ */
+  .header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    padding:20px 0;
+    transition:background .3s ease, box-shadow .3s ease, padding .3s ease;
+  }
+  .header.is-scrolled{
+    background:rgba(255,248,236,.92);
+    backdrop-filter:blur(10px);
+    box-shadow:0 6px 24px -16px rgba(43,33,24,.35);
+    padding:12px 0;
+  }
+  .header__inner{ display:flex; align-items:center; justify-content:space-between; gap:2rem; }
+  .logo{
+    display:flex; align-items:center; gap:.6rem;
+    font-family:var(--font-display); font-weight:700; font-size:1.35rem; color:var(--dark);
+    position:relative; z-index:101;
+  }
+  .logo__icon{ width:34px; height:34px; color:var(--orange-deep); animation:spin 70s linear infinite; }
+
+  .nav{ display:flex; gap:2.2rem; }
+  .nav a{ font-weight:600; font-size:.95rem; position:relative; padding:.25rem 0; }
+  .nav a::after{
+    content:''; position:absolute; left:0; right:100%; bottom:-2px; height:2px;
+    background:var(--orange-deep); transition:right .25s ease;
+  }
+  .nav a:hover::after{ right:0; }
+  .nav__cta{ display:none; }
+
+  .header__actions{ display:flex; align-items:center; gap:1rem; position:relative; z-index:101; }
+  .nav-toggle{
+    display:none; flex-direction:column; gap:5px; background:none; border:0; padding:8px; cursor:pointer;
+  }
+  .nav-toggle span{ width:22px; height:2px; background:var(--dark); border-radius:2px; transition:transform .3s, opacity .3s; }
+
+  @media (max-width:860px){
+    .nav{
+      position:fixed; inset:0; z-index:90; background:var(--cream);
+      flex-direction:column; justify-content:center; align-items:center; gap:2rem;
+      transform:translateY(-100%); transition:transform .4s ease;
+    }
+    .nav a{ font-size:1.5rem; font-family:var(--font-display); }
+    .nav__cta{ display:inline-flex; margin-top:1rem; }
+    body.nav-open .nav{ transform:translateY(0); }
+    .nav-toggle{ display:flex; }
+    .header__actions .btn--sm{ display:none; }
+    body.nav-open .nav-toggle span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+    body.nav-open .nav-toggle span:nth-child(2){ opacity:0; }
+    body.nav-open .nav-toggle span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  }
+
+  /* ============ Hero ============ */
+  .hero{ position:relative; padding-top:160px; padding-bottom:88px; overflow:hidden; }
+  .hero__bg{
+    position:absolute; top:-12%; right:-12%; width:62vw; max-width:640px;
+    color:var(--orange); opacity:.16; pointer-events:none;
+  }
+  .hero__sun{ animation:spin 100s linear infinite; }
+  .hero__inner{ position:relative; z-index:1; max-width:760px; }
+  .hero h1{ font-size:clamp(2.4rem, 5.5vw, 4.2rem); margin:0 0 1.25rem; }
+  .hero .lead{ font-size:1.125rem; color:var(--brown); max-width:620px; margin-bottom:2.25rem; }
+  .hero__actions{ display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:3.5rem; }
+  .hero__stats{ display:flex; gap:2.5rem; flex-wrap:wrap; }
+  .hero__stats > div{ display:flex; flex-direction:column; gap:.25rem; }
+  .hero__stats strong{ font-family:var(--font-display); font-size:1.85rem; color:var(--orange-deep); }
+  .hero__stats span{ font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; color:var(--brown); }
+
+  /* ============ Founder ============ */
+  .founder__inner{ display:grid; grid-template-columns:.9fr 1.1fr; gap:4rem; align-items:center; }
+  .founder__illustration{ width:100%; border-radius:28px; }
+  .founder h2{ font-size:clamp(2rem, 4vw, 2.75rem); margin:.5rem 0 1.25rem; }
+  .founder p{ margin-bottom:1.25rem; color:var(--brown); }
+  .founder__signature{ font-family:var(--font-display); font-style:italic; font-size:1.1rem; color:var(--dark); margin-bottom:1.5rem !important; }
+  .link-arrow{ font-weight:700; color:var(--orange-deep); display:inline-flex; align-items:center; gap:.4rem; }
+  .link-arrow svg{ width:18px; height:18px; transition:transform .2s ease; }
+  .link-arrow:hover svg{ transform:translateX(4px); }
+
+  @media (max-width:860px){
+    .founder__inner{ grid-template-columns:1fr; gap:2.5rem; }
+  }
+
+  /* ============ Product ============ */
+  .product{ background:var(--cream-deep); }
+  .section-head{ max-width:640px; margin:0 auto 3.5rem; text-align:center; }
+  .section-head .lead{ color:var(--brown); margin-top:1rem; }
+  .product__grid{ display:grid; grid-template-columns:.9fr 1.1fr; gap:3rem; align-items:center; margin-bottom:3rem; }
+  .product__slice{ width:100%; max-width:380px; margin:0 auto; }
+  .product__facts{ display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem; }
+  .fact-card{ background:#fff; border-radius:18px; padding:1.6rem; box-shadow:0 10px 28px -20px rgba(43,33,24,.4); }
+  .fact-card svg{ width:28px; height:28px; color:var(--orange-deep); margin-bottom:.85rem; }
+  .fact-card h3{ font-size:1.05rem; margin-bottom:.4rem; }
+  .fact-card p{ font-size:.9rem; color:var(--brown); }
+  .product__cta{ text-align:center; }
+
+  @media (max-width:860px){
+    .product__grid{ grid-template-columns:1fr; }
+    .product__facts{ grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width:480px){
+    .product__facts{ grid-template-columns:1fr; }
+  }
+
+  /* ============ Journal ============ */
+  .journal__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.75rem; }
+  .journal-card{
+    background:#fff; border-radius:20px; padding:1.85rem; display:flex; flex-direction:column; gap:.85rem;
+    box-shadow:0 10px 28px -20px rgba(43,33,24,.4);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .journal-card:hover{ transform:translateY(-6px) rotate(-.4deg); box-shadow:0 18px 36px -18px rgba(43,33,24,.4); }
+  .journal-card__tag{
+    align-self:flex-start; font-size:.74rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em;
+    background:var(--cream-deep); color:var(--orange-deep); padding:.32rem .8rem; border-radius:999px;
+  }
+  .journal-card time{ font-size:.8rem; color:var(--brown); }
+  .journal-card h3{ font-size:1.15rem; }
+  .journal-card p{ font-size:.92rem; color:var(--brown); flex:1; }
+  .journal-card .link-arrow{ font-size:.9rem; }
+
+  @media (max-width:980px){ .journal__grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:640px){ .journal__grid{ grid-template-columns:1fr; } }
+
+  /* ============ CTA strip ============ */
+  .cta{ background:linear-gradient(135deg, var(--orange-deep), var(--gold)); color:#fff; text-align:center; }
+  .cta h2{ font-size:clamp(1.8rem, 4vw, 2.75rem); margin-bottom:1rem; }
+  .cta p{ color:rgba(255,255,255,.92); margin-bottom:2.25rem; font-size:1.05rem; }
+  .cta__actions{ display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; }
+
+  /* ============ Footer ============ */
+  .footer{ position:relative; background:var(--dark); color:var(--cream); overflow:hidden; padding:88px 0 0; }
+  .footer__sun{ position:absolute; top:-18%; right:-8%; width:480px; color:var(--orange); opacity:.07; animation:spin 140s linear infinite; }
+  .footer__inner{ position:relative; z-index:1; display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:3rem; padding-bottom:56px; }
+  .footer .logo{ color:var(--cream); }
+  .footer__brand p{ margin-top:1rem; color:rgba(255,248,236,.7); max-width:280px; }
+  .footer__col h4{ font-size:.85rem; text-transform:uppercase; letter-spacing:.1em; color:var(--gold); margin-bottom:1rem; font-weight:700; }
+  .footer__col li{ margin-bottom:.65rem; color:rgba(255,248,236,.85); font-size:.95rem; }
+  .footer__col a:hover{ color:var(--gold); }
+  .footer__bottom{ border-top:1px solid rgba(255,248,236,.12); padding:22px 0; position:relative; z-index:1; }
+  .footer__bottom p{ font-size:.8rem; color:rgba(255,248,236,.55); }
+
+  @media (max-width:860px){
+    .footer__inner{ grid-template-columns:1fr 1fr; }
+    .footer__brand{ grid-column:1 / -1; }
+  }
+  @media (max-width:540px){
+    .footer__inner{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ SVG sprite: citrus-sun signature mark + citrus slice ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="sliceGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FDE7AC"/>
+      <stop offset="100%" stop-color="#F4B731"/>
+    </radialGradient>
+
+    <!-- Signature mark: citrus slice + sun rays -->
+    <symbol id="citrus-sun" viewBox="0 0 100 100">
+      <g stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".6">
+        <line x1="90" y1="50" x2="98" y2="50"/>
+        <line x1="86.96" y1="65.32" x2="94.35" y2="68.38"/>
+        <line x1="78.28" y1="78.28" x2="83.94" y2="83.94"/>
+        <line x1="65.32" y1="86.96" x2="68.38" y2="94.35"/>
+        <line x1="50" y1="90" x2="50" y2="98"/>
+        <line x1="34.68" y1="86.96" x2="31.62" y2="94.35"/>
+        <line x1="21.72" y1="78.28" x2="16.06" y2="83.94"/>
+        <line x1="13.04" y1="65.32" x2="5.65" y2="68.38"/>
+        <line x1="10" y1="50" x2="2" y2="50"/>
+        <line x1="13.04" y1="34.68" x2="5.65" y2="31.62"/>
+        <line x1="21.72" y1="21.72" x2="16.06" y2="16.06"/>
+        <line x1="34.68" y1="13.04" x2="31.62" y2="5.65"/>
+        <line x1="50" y1="10" x2="50" y2="2"/>
+        <line x1="65.32" y1="13.04" x2="68.38" y2="5.65"/>
+        <line x1="78.28" y1="21.72" x2="83.94" y2="16.06"/>
+        <line x1="86.96" y1="34.68" x2="94.35" y2="31.62"/>
+      </g>
+      <circle cx="50" cy="50" r="36" fill="none" stroke="currentColor" stroke-width="3"/>
+      <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="50" y1="50" x2="86" y2="50"/>
+        <line x1="50" y1="50" x2="75.5" y2="75.5"/>
+        <line x1="50" y1="50" x2="50" y2="86"/>
+        <line x1="50" y1="50" x2="24.5" y2="75.5"/>
+        <line x1="50" y1="50" x2="14" y2="50"/>
+        <line x1="50" y1="50" x2="24.5" y2="24.5"/>
+        <line x1="50" y1="50" x2="50" y2="14"/>
+        <line x1="50" y1="50" x2="75.5" y2="24.5"/>
+      </g>
+    </symbol>
+
+    <!-- Product visual: citrus cross-section -->
+    <symbol id="citrus-slice" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="48" fill="var(--orange)" opacity=".18"/>
+      <circle cx="50" cy="50" r="40" fill="url(#sliceGradient)"/>
+      <g stroke="#FFF8EC" stroke-width="1.6" stroke-linecap="round">
+        <line x1="50" y1="50" x2="90" y2="50"/>
+        <line x1="50" y1="50" x2="82.36" y2="73.52"/>
+        <line x1="50" y1="50" x2="62.36" y2="88.04"/>
+        <line x1="50" y1="50" x2="37.64" y2="88.04"/>
+        <line x1="50" y1="50" x2="17.64" y2="73.52"/>
+        <line x1="50" y1="50" x2="10" y2="50"/>
+        <line x1="50" y1="50" x2="17.64" y2="26.48"/>
+        <line x1="50" y1="50" x2="37.64" y2="11.96"/>
+        <line x1="50" y1="50" x2="62.36" y2="11.96"/>
+        <line x1="50" y1="50" x2="82.36" y2="26.48"/>
+      </g>
+      <circle cx="50" cy="50" r="6" fill="#FFF8EC"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ Header ============ -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="#top" class="logo">
+      <svg class="logo__icon" viewBox="0 0 100 100" aria-hidden="true"><use href="#citrus-sun"/></svg>
+      <span>Vườn Nắng</span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#san-pham">Sản phẩm</a>
+      <a href="#cau-chuyen">Câu chuyện</a>
+      <a href="#nhat-ky">Nhật ký vườn</a>
+      <a href="#lien-he">Liên hệ</a>
+      <a href="#lien-he" class="btn btn--primary nav__cta">Đặt hàng ngay</a>
+    </nav>
+    <div class="header__actions">
+      <a href="#lien-he" class="btn btn--primary btn--sm">Đặt hàng ngay</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Mở menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ Hero ============ -->
+<section class="hero" id="top">
+  <div class="hero__bg" aria-hidden="true">
+    <svg class="hero__sun" viewBox="0 0 100 100"><use href="#citrus-sun"/></svg>
+  </div>
+  <div class="container hero__inner">
+    <p class="eyebrow reveal">🍊 Vụ cam đầu tiên — sắp chín</p>
+    <h1 class="reveal">Cam Mật Nắng — vị ngọt được nắng và sương đồi Quỳ Hợp chăm từng ngày</h1>
+    <p class="lead reveal">
+      Vườn Nắng là nông trại nhỏ trên những triền đồi đất đỏ ở Quỳ Hợp, Nghệ An — nơi chúng tôi dành
+      hơn sáu năm để tìm ra giống cam phù hợp với khí hậu và thổ nhưỡng nơi đây, trồng theo hướng hữu cơ,
+      không thúc chín và không dùng chất bảo quản.
+    </p>
+    <div class="hero__actions reveal">
+      <a href="#lien-he" class="btn btn--primary">Đặt hàng ngay</a>
+      <a href="#cau-chuyen" class="btn btn--ghost">Tìm hiểu về vườn</a>
+    </div>
+    <div class="hero__stats reveal">
+      <div>
+        <strong>100%</strong>
+        <span>Hữu cơ</span>
+      </div>
+      <div>
+        <strong>420m</strong>
+        <span>Độ cao canh tác</span>
+      </div>
+      <div>
+        <strong>11 – 1</strong>
+        <span>Mùa thu hoạch</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Founder letter ============ -->
+<section class="founder" id="cau-chuyen">
+  <div class="container founder__inner">
+    <div class="reveal">
+      <svg class="founder__illustration" viewBox="0 0 240 240" role="img" aria-label="Minh hoạ vườn cam dưới nắng">
+        <rect width="240" height="240" rx="28" fill="#FCEEDB"/>
+        <use href="#citrus-sun" x="150" y="14" width="76" height="76" color="#F4B731" opacity=".9"/>
+        <path d="M0 172 C 40 142 80 192 120 162 S 200 132 240 167 V240 H0 Z" fill="#EBD9A8"/>
+        <rect x="108" y="118" width="14" height="74" rx="6" fill="#6E4A2E"/>
+        <circle cx="115" cy="103" r="48" fill="#5C8A4A"/>
+        <circle cx="93" cy="92" r="8" fill="#FF7A30"/>
+        <circle cx="132" cy="116" r="8" fill="#FF7A30"/>
+        <circle cx="108" cy="132" r="8" fill="#FF7A30"/>
+        <circle cx="142" cy="84" r="8" fill="#FF7A30"/>
+      </svg>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">Câu chuyện của chúng tôi</p>
+      <h2>Thư ngỏ từ người trồng</h2>
+      <p>
+        Tôi lớn lên ở một vùng đồi mà mùa nào cũng có cam, nhưng phần lớn là cam chua, hái sớm để kịp
+        chuyến xe ra chợ huyện. Năm 2018, tôi cùng vài người bạn quay về, làm lại từ đầu: chọn lại giống,
+        cải tạo đất bằng phân hữu cơ, và để cây tự quyết định khi nào chín thay vì ép theo lịch thu hoạch.
+      </p>
+      <p>
+        Có những vụ mất gần hết vì sương muối, có những đợt phải bỏ cả tấn quả vì chưa đạt độ ngọt mình
+        đặt ra. Nhưng sau từng ấy năm, Cam Mật Nắng là kết quả mà chúng tôi tin tưởng để gửi đến bạn —
+        một quả cam chín đúng lúc, ngọt đúng độ, và chỉ được hái khi nó thật sự sẵn sàng.
+      </p>
+      <p class="founder__signature">— Minh Khuê, gắn bó với Vườn Nắng từ những ngày đầu</p>
+      <a href="#nhat-ky" class="link-arrow">
+        Xem nhật ký vườn
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Product ============ -->
+<section class="product" id="san-pham">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Sản phẩm chủ lực</p>
+      <h2>Cam Mật Nắng là ai?</h2>
+      <p class="lead">
+        Cam Mật Nắng là giống cam được Vườn Nắng tuyển chọn và nhân giống riêng trên vùng đất đỏ bazan ở
+        độ cao hơn 400 mét. Vỏ mỏng, múi cam vàng óng, mọng nước và có hậu ngọt thanh — vị ngọt được tích
+        lũy tự nhiên dưới nắng đồi Quỳ Hợp.
+      </p>
+    </div>
+
+    <div class="product__grid">
+      <div class="reveal">
+        <svg class="product__slice" viewBox="0 0 100 100" role="img" aria-label="Mặt cắt quả Cam Mật Nắng">
+          <use href="#citrus-slice"/>
+        </svg>
+      </div>
+      <div class="product__facts">
+        <div class="fact-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19 L9 7 L13 14 L16 9 L21 19 Z"/></svg>
+          <h3>Đất đỏ bazan</h3>
+          <p>Tầng canh tác sâu trên 1 mét, giữ ẩm và khoáng tự nhiên cho rễ cam phát triển khoẻ.</p>
+        </div>
+        <div class="fact-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3C12 3 6 10 6 14a6 6 0 0 0 12 0C18 10 12 3 12 3Z"/></svg>
+          <h3>Ngọt tự nhiên 12 – 14 Brix</h3>
+          <p>Độ đường được đo trước khi hái, đảm bảo quả chỉ rời cây khi đã đạt vị ngọt chuẩn.</p>
+        </div>
+        <div class="fact-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12c0-5 4-8 9-8 1 5-2 9-7 9-2 0-2 0-2-1Z"/><path d="M5 12c4 0 7 3 7 7"/></svg>
+          <h3>Không thúc chín</h3>
+          <p>Không dùng chất kích thích chín hay chất bảo quản cho vỏ — quả chín hoàn toàn tự nhiên.</p>
+        </div>
+        <div class="fact-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16l-1.5 10a2 2 0 0 1-2 2H7.5a2 2 0 0 1-2-2L4 9Z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg>
+          <h3>Hái theo từng cây</h3>
+          <p>Mỗi cây được kiểm tra riêng và thu hoạch khi quả sẵn sàng, không hái đồng loạt theo lô.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="product__cta reveal">
+      <a href="#lien-he" class="btn btn--primary">Liên hệ đặt hàng</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Journal ============ -->
+<section class="journal" id="nhat-ky">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Nhật ký vườn</p>
+      <h2>Nắng, gió và những ngày ở Vườn Nắng</h2>
+    </div>
+
+    <div class="journal__grid">
+      <article class="journal-card reveal">
+        <span class="journal-card__tag">Góc chăm cây</span>
+        <time datetime="2025-11-12">12/11/2025</time>
+        <h3>Tưới nước theo đất, không theo lịch</h3>
+        <p>
+          Mỗi gốc cam ở Vườn Nắng được kiểm tra độ ẩm đất riêng trước khi tưới, vì cùng một hàng cây
+          nhưng độ giữ nước của đất có thể chênh nhau đáng kể.
+        </p>
+        <a href="#" class="link-arrow">
+          Đọc thêm
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <article class="journal-card reveal">
+        <span class="journal-card__tag">Mùa vụ</span>
+        <time datetime="2025-11-28">28/11/2025</time>
+        <h3>Một buổi sáng hái cam ở Vườn Nắng</h3>
+        <p>
+          Cam được hái vào sáng sớm, khi quả còn mát và lượng đường đã ổn định qua đêm — đó là lúc vị
+          ngọt rõ nhất và quả ít bị dập trong quá trình vận chuyển.
+        </p>
+        <a href="#" class="link-arrow">
+          Đọc thêm
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <article class="journal-card reveal">
+        <span class="journal-card__tag">Hỏi đáp</span>
+        <time datetime="2025-12-05">05/12/2025</time>
+        <h3>Vì sao vỏ Cam Mật Nắng hơi sần?</h3>
+        <p>
+          Vỏ sần là dấu hiệu cam được trồng tự nhiên, không phun bóng vỏ — các túi tinh dầu trên vỏ phát
+          triển tự do theo điều kiện thời tiết từng vùng.
+        </p>
+        <a href="#" class="link-arrow">
+          Đọc thêm
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA strip ============ -->
+<section class="cta">
+  <div class="container cta__inner reveal">
+    <h2>Sẵn sàng nếm vị nắng đồi Quỳ Hợp?</h2>
+    <p>Cam Mật Nắng chỉ thu hoạch theo mùa, số lượng có hạn mỗi vụ.</p>
+    <div class="cta__actions">
+      <a href="#lien-he" class="btn btn--light">Đặt hàng ngay</a>
+      <a href="mailto:hello@vuonnang.vn" class="btn btn--outline-light">Liên hệ tư vấn</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer class="footer" id="lien-he">
+  <div class="footer__sun" aria-hidden="true">
+    <svg viewBox="0 0 100 100"><use href="#citrus-sun"/></svg>
+  </div>
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <a href="#top" class="logo">
+        <svg class="logo__icon" viewBox="0 0 100 100" aria-hidden="true" style="animation:none"><use href="#citrus-sun"/></svg>
+        <span>Vườn Nắng</span>
+      </a>
+      <p>Nông trại hữu cơ trên đất đỏ Quỳ Hợp, Nghệ An — nơi Cam Mật Nắng được chăm trồng theo mùa.</p>
+    </div>
+
+    <div class="footer__col">
+      <h4>Liên hệ</h4>
+      <ul>
+        <li>📞 0888 000 000</li>
+        <li>✉️ hello@vuonnang.vn</li>
+        <li>📍 Quỳ Hợp, Nghệ An</li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4>Sàn &amp; mạng xã hội</h4>
+      <ul>
+        <li><a href="#">Facebook ↗</a></li>
+        <li><a href="#">Shopee ↗</a></li>
+        <li><a href="#">TikTok ↗</a></li>
+        <li><a href="#">Zalo ↗</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4>Khám phá</h4>
+      <ul>
+        <li><a href="#top">Trang chủ</a></li>
+        <li><a href="#san-pham">Sản phẩm</a></li>
+        <li><a href="#cau-chuyen">Câu chuyện</a></li>
+        <li><a href="#nhat-ky">Nhật ký vườn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom container">
+    <p>© 2026 Vườn Nắng. Đây là trang demo — thông tin liên hệ, sản phẩm và liên kết chỉ mang tính minh hoạ.</p>
+  </div>
+</footer>
+
+<script>
+  // Header background on scroll
+  var header = document.getElementById('header');
+  window.addEventListener('scroll', function(){
+    header.classList.toggle('is-scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // Mobile nav toggle
+  var navToggle = document.getElementById('navToggle');
+  navToggle.addEventListener('click', function(){
+    var isOpen = document.body.classList.toggle('nav-open');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  document.querySelectorAll('.nav a').forEach(function(link){
+    link.addEventListener('click', function(){
+      document.body.classList.remove('nav-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Scroll reveal
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll('.reveal');
+  if (!prefersReduced && 'IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(function(el){ observer.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+</script>
+
+</body>
+</html>
