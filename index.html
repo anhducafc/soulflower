@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<title>Soul Flower — Thực phẩm hữu cơ từ mảnh đất lành</title>
+<meta name="description" content="Soul Flower là nông trại hữu cơ nhỏ trên cao nguyên Tây Nguyên, nơi chúng tôi trồng và khai thác thực phẩm như cho chính gia đình mình. Không hóa chất. Không vội vàng.">
+<meta name="theme-color" content="#3A4A33">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 6C24 12 24 20 20 28C16 20 16 12 20 6Z' fill='%233A4A33'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+<defs>
+  <symbol id="sf-logo" viewBox="0 0 40 40">
+    <path d="M20 6 C 24 12, 24 20, 20 28 C 16 20, 16 12, 20 6 Z"/>
+    <path d="M20 28 C 20 22, 24 18, 30 17"/>
+    <path d="M20 28 C 20 22, 16 18, 10 17"/>
+    <circle cx="20" cy="29.5" r="1.4" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="sf-leaf-sprig" viewBox="0 0 200 200">
+    <path d="M100 180 C 100 130 100 80 100 30"/>
+    <path d="M100 150 C 130 145 155 125 165 95"/>
+    <path d="M100 110 C 70 105 45 85 35 55"/>
+    <path d="M100 70 C 120 68 138 55 148 35"/>
+    <circle cx="100" cy="28" r="3.5"/>
+  </symbol>
+  <symbol id="sf-icon-organic" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="20"/>
+    <path d="M24 34 C 24 24 24 16 24 12"/>
+    <path d="M24 26 C 30 24 34 18 35 12"/>
+    <path d="M24 18 C 18 16 14 11 13 6"/>
+  </symbol>
+  <symbol id="sf-icon-season" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="20"/>
+    <path d="M16 18 C 16 24 19 30 24 33 C 19 30 16 24 16 18 Z"/>
+    <path d="M32 30 C 32 24 29 18 24 15 C 29 18 32 24 32 30 Z"/>
+  </symbol>
+  <symbol id="sf-icon-transparent" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="20"/>
+    <path d="M14 24 C 17 18 20 15 24 15 C 28 15 31 18 34 24 C 31 30 28 33 24 33 C 20 33 17 30 14 24 Z"/>
+    <circle cx="24" cy="24" r="3.2"/>
+  </symbol>
+  <symbol id="sf-icon-zalo" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9.5"/>
+    <path d="M8 9.5 H14.2 L8.2 15.2 H14.5"/>
+  </symbol>
+  <symbol id="sf-icon-tiktok" viewBox="0 0 24 24">
+    <path d="M13 4 V14.5 C13 16.4 11.4 18 9.5 18 C 7.6 18 6 16.4 6 14.5 C 6 12.6 7.6 11 9.5 11 C 9.8 11 10.1 11 10.4 11.1"/>
+    <path d="M13 4 C 13.3 6.5 15.2 8.4 17.7 8.7"/>
+    <path d="M13 7.2 V14.5"/>
+  </symbol>
+  <symbol id="sf-icon-shopee" viewBox="0 0 24 24">
+    <path d="M6 9 H18 L17 19 C 16.9 19.6 16.4 20 15.8 20 H8.2 C 7.6 20 7.1 19.6 7 19 L6 9 Z"/>
+    <path d="M9 9 V7 C 9 5.3 10.3 4 12 4 C 13.7 4 15 5.3 15 7 V9"/>
+  </symbol>
+  <symbol id="sf-arrow" viewBox="0 0 24 24">
+    <path d="M4 12 H20 M14 6 L20 12 L14 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</defs>
+</svg>
+
+<!-- ============ Header ============ -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="index.html" class="logo">
+      <svg class="logo-mark" viewBox="0 0 40 40"><use href="#sf-logo"/></svg>
+      <span>Soul Flower</span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="about.html">Về chúng tôi</a>
+      <a href="products.html">Sản phẩm</a>
+      <a href="index.html#story" class="is-active">Nông trại</a>
+      <a href="index.html#contact">Liên hệ</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Mở menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ SECTION 1 — HERO ============ -->
+<section class="hero">
+  <img class="hero__photo" src="https://images.unsplash.com/photo-1672008622713-b2f1628a9ff1?q=80&w=1920&auto=format&fit=crop" alt="Đồi núi xanh ở vùng cao nguyên" loading="eager">
+  <div class="hero__scrim" aria-hidden="true"></div>
+
+  <div class="container hero__inner">
+    <p class="hero__brand reveal">Soul Flower</p>
+    <h1 class="reveal">Thực phẩm hữu cơ<br>từ <em>mảnh đất lành</em></h1>
+    <blockquote class="reveal">"Chúng tôi trồng trọt với sự tôn trọng thiên nhiên và sức khỏe con người."</blockquote>
+    <div class="btn-pair reveal">
+      <a href="products.html" class="btn btn--accent">
+        Khám phá sản phẩm
+        <svg viewBox="0 0 24 24"><use href="#sf-arrow"/></svg>
+      </a>
+      <a href="about.html" class="btn">
+        Câu chuyện vườn
+        <svg viewBox="0 0 24 24"><use href="#sf-arrow"/></svg>
+      </a>
+    </div>
+    <div class="hero__stats reveal">
+      <div>
+        <strong>100%</strong>
+        <span>Hữu cơ</span>
+      </div>
+      <div>
+        <strong>500–1500m</strong>
+        <span>Độ cao canh tác</span>
+      </div>
+      <div>
+        <strong>4 tỉnh</strong>
+        <span>Tây Nguyên</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 2 — TRIẾT LÝ ============ -->
+<section class="philosophy">
+  <div class="container philosophy__inner">
+    <div class="philosophy__art reveal">
+      <img src="https://images.unsplash.com/photo-1647701858907-0ba56bc2fa25?q=80&w=900&auto=format&fit=crop" alt="Nông sản hữu cơ tươi vừa thu hoạch" loading="lazy">
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">Triết lý</p>
+      <h2>Từ đất – qua bàn tay – đến bữa ăn</h2>
+      <p>
+        Soul Flower là nông trại hữu cơ nhỏ trên cao nguyên Tây Nguyên, nơi chúng tôi trồng và
+        khai thác thực phẩm như cho chính gia đình mình. Không hóa chất. Không vội vàng.
+      </p>
+      <a href="about.html" class="btn btn--accent">
+        Tìm hiểu về Soul Flower
+        <svg viewBox="0 0 24 24"><use href="#sf-arrow"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 3 — GIÁ TRỊ CỐT LÕI ============ -->
+<section class="values">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Giá trị cốt lõi</p>
+      <h2>Những điều chúng tôi giữ vững</h2>
+    </div>
+    <div class="values__grid">
+      <div class="value-card reveal">
+        <svg viewBox="0 0 48 48"><use href="#sf-icon-organic"/></svg>
+        <h3>Canh tác hữu cơ</h3>
+        <p>Không thuốc trừ sâu, không biến đổi gen.</p>
+      </div>
+      <div class="value-card reveal">
+        <svg viewBox="0 0 48 48"><use href="#sf-icon-season"/></svg>
+        <h3>Thu hoạch theo mùa</h3>
+        <p>Tôn trọng nhịp sinh trưởng tự nhiên.</p>
+      </div>
+      <div class="value-card reveal">
+        <svg viewBox="0 0 48 48"><use href="#sf-icon-transparent"/></svg>
+        <h3>Minh bạch nguồn gốc</h3>
+        <p>Biết rõ bạn đang ăn gì, khai thác từ vùng nào.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 4 — SẢN PHẨM NỔI BẬT (load động) ============ -->
+<section class="products-teaser">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Từ vườn đến bạn</p>
+      <h2>Sản phẩm từ nông trại Soul Flower</h2>
+    </div>
+    <div class="products-teaser__grid" id="featuredProducts">
+      <!-- Nội dung được điền bằng JavaScript từ products-data.js -->
+    </div>
+    <div class="products-teaser__cta reveal">
+      <a href="products.html" class="btn btn--accent">
+        Xem toàn bộ sản phẩm
+        <svg viewBox="0 0 24 24"><use href="#sf-arrow"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 5 — CÂU CHUYỆN NÔNG TRẠI ============ -->
+<section class="story" id="story">
+  <div class="container story__inner">
+    <div class="story__art reveal">
+      <img src="https://images.unsplash.com/photo-1657288649124-b80bdee3c17e?q=80&w=900&auto=format&fit=crop" alt="Nông sản hữu cơ vừa thu hoạch trên xe" loading="lazy">
+    </div>
+    <div class="story__text reveal">
+      <p class="eyebrow">Câu chuyện từ mảnh đất</p>
+      <h2>Mỗi luống cây đều có thời gian của nó</h2>
+      <p>
+        Chúng tôi không ép cây lớn nhanh, cũng như không ép con người sống vội. Mỗi mùa vụ ở
+        Soul Flower bắt đầu từ việc lắng nghe đất đỏ bazan Tây Nguyên, chờ đúng thời điểm gieo
+        trồng và để cây tự tìm nhịp phát triển của mình.
+      </p>
+      <a href="about.html" class="btn btn--accent">
+        Cách chúng tôi canh tác
+        <svg viewBox="0 0 24 24"><use href="#sf-arrow"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 6 — LIÊN KẾT BÁN HÀNG NGOÀI ============ -->
+<section class="channels">
+  <div class="container">
+    <h2 class="reveal">Bạn có thể tìm Soul Flower tại</h2>
+    <p class="reveal">Chúng tôi hiện kết nối qua các kênh sau, thay vì một gian hàng trực tuyến lớn.</p>
+    <div class="channels__row reveal">
+      <a href="#" class="channel-pill">
+        <svg viewBox="0 0 24 24"><use href="#sf-icon-zalo"/></svg>
+        Zalo
+      </a>
+      <a href="#" class="channel-pill">
+        <svg viewBox="0 0 24 24"><use href="#sf-icon-tiktok"/></svg>
+        TikTok Shop
+      </a>
+      <a href="#" class="channel-pill">
+        <svg viewBox="0 0 24 24"><use href="#sf-icon-shopee"/></svg>
+        Shopee
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 7 — LIÊN HỆ ============ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Kết nối</p>
+      <h2>Kết nối với Soul Flower</h2>
+      <p>Nếu bạn quan tâm đến thực phẩm hữu cơ, hợp tác hoặc muốn ghé thăm nông trại.</p>
+    </div>
+    <div class="contact__inner reveal">
+      <form id="contactForm">
+        <div class="form-row">
+          <label for="name">Tên của bạn</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-row">
+          <label for="email">Email hoặc số điện thoại</label>
+          <input type="text" id="email" name="email" required>
+        </div>
+        <div class="form-row">
+          <label for="message">Lời nhắn</label>
+          <textarea id="message" name="message" rows="3" required></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn-outline">Gửi lời nhắn</button>
+        </div>
+        <p class="form-note" id="formNote"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div>
+        <a href="index.html" class="logo">
+          <svg class="logo-mark" viewBox="0 0 40 40"><use href="#sf-logo"/></svg>
+          <span>Soul Flower</span>
+        </a>
+        <p class="footer__tagline">Soul Flower – Thực phẩm hữu cơ, khai thác từ các nông trại vùng Tây Nguyên, Việt Nam.</p>
+      </div>
+      <nav class="footer__nav">
+        <a href="about.html">Về chúng tôi</a>
+        <a href="products.html">Sản phẩm</a>
+        <a href="index.html#story">Nông trại</a>
+        <a href="index.html#contact">Liên hệ</a>
+        <a href="admin.html">Quản trị</a>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Soul Flower. Trang demo — nội dung và liên kết mang tính minh hoạ.</span>
+      <span>Trồng với sự tôn trọng thiên nhiên</span>
+    </div>
+  </div>
+</footer>
+
+<script src="products-data.js"></script>
+<script src="script.js"></script>
+<script>
+  // Hiển thị 3 sản phẩm nổi bật trên trang chủ, lấy từ dữ liệu chung
+  (function () {
+    var container = document.getElementById("featuredProducts");
+    if (!container) return;
+    var products = soulflowerGetProducts().filter(function (p) { return p.status !== "out"; }).slice(0, 3);
+    container.innerHTML = products.map(function (p) {
+      return (
+        '<a href="product.html?id=' + encodeURIComponent(p.id) + '" class="produce-card reveal is-visible">' +
+          '<div class="produce-card__art"><img src="' + p.image + '" alt="' + p.name + '" loading="lazy"></div>' +
+          '<span class="produce-card__tag">' + p.category + '</span>' +
+          '<h3>' + p.name + '</h3>' +
+          '<p>' + p.origin + '</p>' +
+        '</a>'
+      );
+    }).join("");
+  })();
+</script>
+</body>
+</html>

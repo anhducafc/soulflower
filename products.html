@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<title>Sản phẩm — Soul Flower</title>
+<meta name="description" content="Sản phẩm hữu cơ từ Soul Flower: cà phê, trái cây, rau củ, mật ong, gia vị và hạt khô — khai thác từ các nông trại vùng Tây Nguyên.">
+<meta name="theme-color" content="#3A4A33">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 6C24 12 24 20 20 28C16 20 16 12 20 6Z' fill='%233A4A33'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+<defs>
+  <symbol id="sf-logo" viewBox="0 0 40 40">
+    <path d="M20 6 C 24 12, 24 20, 20 28 C 16 20, 16 12, 20 6 Z"/>
+    <path d="M20 28 C 20 22, 24 18, 30 17"/>
+    <path d="M20 28 C 20 22, 16 18, 10 17"/>
+    <circle cx="20" cy="29.5" r="1.4" fill="currentColor" stroke="none"/>
+  </symbol>
+</defs>
+</svg>
+
+<!-- ============ Header ============ -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="index.html" class="logo">
+      <svg class="logo-mark" viewBox="0 0 40 40"><use href="#sf-logo"/></svg>
+      <span>Soul Flower</span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="about.html">Về chúng tôi</a>
+      <a href="products.html" class="is-active">Sản phẩm</a>
+      <a href="index.html#story">Nông trại</a>
+      <a href="index.html#contact">Liên hệ</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Mở menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ Hero nhỏ ============ -->
+<section class="hero-sm">
+  <img class="hero-sm__photo" src="https://images.unsplash.com/photo-1597816760638-406d7271105c?q=80&w=1600&auto=format&fit=crop" alt="Người chăm sóc cây trồng trong nông trại" loading="eager">
+  <div class="hero-sm__scrim" aria-hidden="true"></div>
+  <div class="container hero-sm__inner">
+    <p class="eyebrow eyebrow--light reveal">Sản phẩm</p>
+    <h1 class="reveal">Những gì đất Tây Nguyên<br>cho vào mỗi mùa</h1>
+    <p class="reveal">Không phải một gian hàng đầy ắp — mà là những gì đất cho chúng tôi vào đúng thời điểm.</p>
+  </div>
+</section>
+
+<!-- ============ Intro ngắn ============ -->
+<section style="padding-top:0">
+  <div class="container">
+    <div class="intro-block reveal">
+      <p>
+        Mỗi sản phẩm dưới đây được trồng hoặc khai thác tại các nông trại hữu cơ vùng Tây Nguyên
+        (Lâm Đồng, Đắk Lắk, Đắk Nông, Gia Lai), theo mùa và theo lượng đất có thể cho — vì vậy
+        danh mục sẽ thay đổi qua từng giai đoạn trong năm.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Bộ lọc danh mục ============ -->
+<section style="padding-top:0; padding-bottom:0">
+  <div class="container">
+    <div class="catalog-filter reveal" id="catalogFilter"></div>
+  </div>
+</section>
+
+<!-- ============ Danh mục sản phẩm (load động) ============ -->
+<section>
+  <div class="container">
+    <div class="catalog__grid" id="catalogGrid"></div>
+
+    <div class="catalog-cta reveal">
+      <p class="eyebrow">Quan tâm một sản phẩm cụ thể?</p>
+      <a href="index.html#contact" class="btn-outline">Liên hệ mua</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div>
+        <a href="index.html" class="logo">
+          <svg class="logo-mark" viewBox="0 0 40 40"><use href="#sf-logo"/></svg>
+          <span>Soul Flower</span>
+        </a>
+        <p class="footer__tagline">Soul Flower – Thực phẩm hữu cơ, khai thác từ các nông trại vùng Tây Nguyên, Việt Nam.</p>
+      </div>
+      <nav class="footer__nav">
+        <a href="about.html">Về chúng tôi</a>
+        <a href="products.html">Sản phẩm</a>
+        <a href="index.html#story">Nông trại</a>
+        <a href="index.html#contact">Liên hệ</a>
+        <a href="admin.html">Quản trị</a>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Soul Flower. Trang demo — nội dung và liên kết mang tính minh hoạ.</span>
+      <span>Trồng với sự tôn trọng thiên nhiên</span>
+    </div>
+  </div>
+</footer>
+
+<script src="products-data.js"></script>
+<script src="script.js"></script>
+<script>
+  (function () {
+    var products = soulflowerGetProducts();
+    var categories = ["Tất cả"].concat(
+      products.reduce(function (acc, p) {
+        if (acc.indexOf(p.category) === -1) acc.push(p.category);
+        return acc;
+      }, [])
+    );
+
+    var filterEl = document.getElementById("catalogFilter");
+    var gridEl = document.getElementById("catalogGrid");
+    var activeCategory = "Tất cả";
+
+    function renderFilter() {
+      filterEl.innerHTML = categories.map(function (cat) {
+        var activeClass = cat === activeCategory ? " is-active" : "";
+        return '<button class="' + activeClass.trim() + '" data-category="' + cat + '">' + cat + '</button>';
+      }).join("");
+      filterEl.querySelectorAll("button").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          activeCategory = btn.getAttribute("data-category");
+          renderFilter();
+          renderGrid();
+        });
+      });
+    }
+
+    function statusNote(p) {
+      if (p.status === "out") return "Hết hàng — chờ vụ mới";
+      if (p.status === "seasonal") return "Chỉ có theo mùa";
+      if (p.status === "new") return "Sản phẩm mới";
+      return p.origin;
+    }
+
+    function renderGrid() {
+      var filtered = activeCategory === "Tất cả" ? products : products.filter(function (p) { return p.category === activeCategory; });
+      if (filtered.length === 0) {
+        gridEl.innerHTML = '<p style="text-align:center; color:var(--moss-soft); grid-column:1/-1;">Chưa có sản phẩm trong danh mục này.</p>';
+        return;
+      }
+      gridEl.innerHTML = filtered.map(function (p) {
+        return (
+          '<a href="product.html?id=' + encodeURIComponent(p.id) + '" class="produce-card reveal is-visible">' +
+            '<div class="produce-card__art"><img src="' + p.image + '" alt="' + p.name + '" loading="lazy"></div>' +
+            '<span class="produce-card__tag">' + p.category + '</span>' +
+            '<h3>' + p.name + '</h3>' +
+            '<p>' + statusNote(p) + '</p>' +
+          '</a>'
+        );
+      }).join("");
+    }
+
+    renderFilter();
+    renderGrid();
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<title id="pageTitle">Sản phẩm — Soul Flower</title>
+<meta name="description" content="Chi tiết sản phẩm hữu cơ Soul Flower: nguồn gốc, cách trồng và mùa vụ.">
+<meta name="theme-color" content="#3A4A33">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 6C24 12 24 20 20 28C16 20 16 12 20 6Z' fill='%233A4A33'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+<defs>
+  <symbol id="sf-logo" viewBox="0 0 40 40">
+    <path d="M20 6 C 24 12, 24 20, 20 28 C 16 20, 16 12, 20 6 Z"/>
+    <path d="M20 28 C 20 22, 24 18, 30 17"/>
+    <path d="M20 28 C 20 22, 16 18, 10 17"/>
+    <circle cx="20" cy="29.5" r="1.4" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="sf-icon-zalo" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9.5"/>
+    <path d="M8 9.5 H14.2 L8.2 15.2 H14.5"/>
+  </symbol>
+  <symbol id="sf-icon-tiktok" viewBox="0 0 24 24">
+    <path d="M13 4 V14.5 C13 16.4 11.4 18 9.5 18 C 7.6 18 6 16.4 6 14.5 C 6 12.6 7.6 11 9.5 11 C 9.8 11 10.1 11 10.4 11.1"/>
+    <path d="M13 4 C 13.3 6.5 15.2 8.4 17.7 8.7"/>
+    <path d="M13 7.2 V14.5"/>
+  </symbol>
+  <symbol id="sf-arrow" viewBox="0 0 24 24">
+    <path d="M4 12 H20 M14 6 L20 12 L14 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</defs>
+</svg>
+
+<!-- ============ Header ============ -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="index.html" class="logo">
+      <svg class="logo-mark" viewBox="0 0 40 40"><use href="#sf-logo"/></svg>
+      <span>Soul Flower</span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="about.html">Về chúng tôi</a>
+      <a href="products.html" class="is-active">Sản phẩm</a>
+      <a href="index.html#story">Nông trại</a>
+      <a href="index.html#contact">Liên hệ</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Mở menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ Ảnh lớn sản phẩm + mô tả tự nhiên (load động) ============ -->
+<section class="product-hero">
+  <div class="container product-hero__inner">
+    <div class="product-hero__art reveal" id="productImageWrap">
+      <img id="productImage" src="" alt="">
+    </div>
+    <div class="product-hero__text reveal">
+      <p class="eyebrow" id="productCategory">Sản phẩm</p>
+      <h1 id="productName">Đang tải...</h1>
+      <p class="product-hero__desc" id="productDesc"></p>
+      <a href="products.html" class="btn btn--accent">
+        Quay lại danh mục
+        <svg viewBox="0 0 24 24"><use href="#sf-arrow"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Nguồn gốc – cách trồng – mùa vụ (load động) ============ -->
+<section class="product-detail">
+  <div class="container">
+    <div class="product-detail__grid">
+      <div class="product-detail__col reveal">
+        <h3>Nguồn gốc</h3>
+        <p id="productOrigin"></p>
+      </div>
+      <div class="product-detail__col reveal">
+        <h3>Giá tham khảo</h3>
+        <p id="productPrice"></p>
+      </div>
+      <div class="product-detail__col reveal">
+        <h3>Tình trạng</h3>
+        <p id="productStatus"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA: Zalo / TikTok Shop ============ -->
+<section class="channels">
+  <div class="container">
+    <h2 class="reveal">Đặt mua sản phẩm này</h2>
+    <p class="reveal">Soul Flower nhận đặt hàng qua các kênh sau, số lượng theo từng đợt thu hoạch.</p>
+    <div class="channels__row reveal">
+      <a href="#" class="channel-pill">
+        <svg viewBox="0 0 24 24"><use href="#sf-icon-zalo"/></svg>
+        Liên hệ qua Zalo
+      </a>
+      <a href="#" class="channel-pill">
+        <svg viewBox="0 0 24 24"><use href="#sf-icon-tiktok"/></svg>
+        Xem trên TikTok Shop
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div>
+        <a href="index.html" class="logo">
+          <svg class="logo-mark" viewBox="0 0 40 40"><use href="#sf-logo"/></svg>
+          <span>Soul Flower</span>
+        </a>
+        <p class="footer__tagline">Soul Flower – Thực phẩm hữu cơ, khai thác từ các nông trại vùng Tây Nguyên, Việt Nam.</p>
+      </div>
+      <nav class="footer__nav">
+        <a href="about.html">Về chúng tôi</a>
+        <a href="products.html">Sản phẩm</a>
+        <a href="index.html#story">Nông trại</a>
+        <a href="index.html#contact">Liên hệ</a>
+        <a href="admin.html">Quản trị</a>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Soul Flower. Trang demo — nội dung và liên kết mang tính minh hoạ.</span>
+      <span>Trồng với sự tôn trọng thiên nhiên</span>
+    </div>
+  </div>
+</footer>
+
+<script src="products-data.js"></script>
+<script src="script.js"></script>
+<script>
+  (function () {
+    var products = soulflowerGetProducts();
+    var params = new URLSearchParams(window.location.search);
+    var id = params.get("id");
+    var product = products.find(function (p) { return p.id === id; }) || products[0];
+
+    if (!product) return;
+
+    document.getElementById("pageTitle").textContent = product.name + " — Soul Flower";
+    document.getElementById("productImage").src = product.image;
+    document.getElementById("productImage").alt = product.name;
+    document.getElementById("productCategory").textContent = product.category;
+    document.getElementById("productName").textContent = product.name;
+    document.getElementById("productDesc").textContent = product.description;
+    document.getElementById("productOrigin").textContent = product.origin;
+    document.getElementById("productPrice").textContent = product.price;
+
+    var statusLabel = (SOULFLOWER_STATUS_LABELS[product.status] || {}).label || "Đang bán";
+    document.getElementById("productStatus").textContent = statusLabel;
+  })();
+</script>
+</body>
+</html>
